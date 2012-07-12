@@ -15,7 +15,7 @@ function _prompt_info() {
   if $(git rev-parse --is-inside-work-tree >/dev/null 2>&1); then
     echo $(git_prompt_info)
   elif $(hg root &> /dev/null); then
-    echo $(hg_prompt_info)
+    echo $(hg_prompt_info 2> /dev/null) || ""
   fi
 }
 
